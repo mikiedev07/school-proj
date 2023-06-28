@@ -9,6 +9,16 @@
 ```shell
 $ docker compose up -d (-d для возможности пользоваться терминалом)
 ```
+Если не вышло 
+
+- System check identified no issues (0 silenced).
+- Django version 4.2.2, using settings 'school_proj.settings'
+- Starting development server at http://0.0.0.0:8000/
+- Quit the server with CONTROL-C.
+
+То 
+- ctrl+c
+- docker-compose up -d
 
 Перейти по адресу localhost:8000.
 
