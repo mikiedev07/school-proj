@@ -1,0 +1,46 @@
+{% extends "management/base.html" %}
+{% block content %}
+    <h4>Student Details</h4>
+    {% if user.is_authenticated %}
+        <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'student-update' object.id %}">Update</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'student-delete' object.id %}">Delete</a>
+        </div>
+    {% endif %}
+<!--        <form method="POST">-->
+<!--            {% csrf_token %}-->
+<!--            {{ form.as_p }}-->
+<!--        </form>-->
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Name:</th>
+                <td>{{ student.name }}</td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td>{{ student.email }}</td>
+            </tr>
+            <tr>
+                <th>Birth Date:</th>
+                <td>{{ student.birth_date }}</td>
+            </tr>
+            <tr>
+                <th>Class:</th>
+                {% if student.class_rel == None %}
+                    <td>-</td>
+                {% else %}
+                    <td>{{ student.class_rel.name }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th>Address:</th>
+                <td>{{ student.address }}</td>
+            </tr>
+            <tr>
+                <th>Sex:</th>
+                <td>{{ student.sex }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock content %}

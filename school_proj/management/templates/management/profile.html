@@ -1,0 +1,21 @@
+{% extends "management/base.html" %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-5">
+            <h4>Profile</h4>
+            <form method="POST">
+                {% csrf_token %}
+                {{ u_form.as_p }}
+                <button type="submit" class="btn btn-primary" name="save">Save</button>
+            </form>
+        </div>
+        <div class="col-md-5">
+            <h4>Broadcast</h4>
+            <form method="POST">
+                {% csrf_token %}
+                {{ b_form.as_p }}
+                <button type="submit" class="btn btn-primary" name="broadcast">Send</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

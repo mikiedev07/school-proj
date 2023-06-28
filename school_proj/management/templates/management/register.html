@@ -1,0 +1,32 @@
+{% extends "management/base.html" %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-5 shadow-sm p-3 mb-5 bg-white rounded">
+            <h2>Signup</h2>
+            <form method="post">
+                {% csrf_token %}
+
+                <!-- Отображение ошибок полей -->
+                {% for field_errors in errors.values %}
+                    {% for error in field_errors %}
+                        <p class="text-danger h6">- {{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="pwd1">Password:</label>
+                    <input type="password" class="form-control" id="pwd1" placeholder="Enter password" name="password1">
+                </div>
+                <div class="form-group">
+                    <label for="pwd2">Confirm Password:</label>
+                    <input type="password" class="form-control" id="pwd2" placeholder="Reenter password"
+  name="password2">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
